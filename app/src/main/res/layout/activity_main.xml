@@ -7,7 +7,7 @@
     tools:context="com.lujianye.mvpdemo.mvp.ui.MainActivity">
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/main_bottom_navigation"
+        android:id="@+id/bvnMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -13,7 +13,7 @@ class MainActivity : BaseActivity() {
     override fun getLayoutResID(): Int = R.layout.activity_main
 
     override fun initData() {
-        disableShiftMode(main_bottom_navigation)
+        disableShiftMode(bvnMenu)
     }
 }
 
