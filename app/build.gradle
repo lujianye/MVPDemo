@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     // Anko
     implementation "org.jetbrains.anko:anko:$anko_version"
@@ -32,8 +32,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    //Retrofit库
+    // Retrofit库
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    //Okhttp库
+    // Okhttp库
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+    implementation 'com.android.support:design:27.0.2'
 }

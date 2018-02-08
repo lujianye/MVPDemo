@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_main">首页俄</string>
+    <string name="app_mall">电商俄</string>
+    <string name="app_translate">翻译俄</string>
+    <string name="app_me">我俄</string>
+</resources>
