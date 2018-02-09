@@ -5,12 +5,13 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import me.yokeyword.fragmentation.SupportFragment
 
 /**
  * fragment---基类
  * Created by cc_013 on 2018/2/8.
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : SupportFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             inflater.inflate(getLayoutResID(), container, false)

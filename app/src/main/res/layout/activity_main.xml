@@ -4,15 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lujianye.mvpdemo.mvp.ui.MainActivity">
+    tools:context="com.lujianye.mvpdemo.mvp.ui.activity.MainActivity">
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bvnMenu"
+        android:id="@+id/bnvMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation" />
+
+    <com.lujianye.mvpdemo.weight.NoScrollViewPager
+        android:id="@+id/vpContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bnvMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
