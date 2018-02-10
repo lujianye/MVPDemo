@@ -8,7 +8,7 @@ import com.lujianye.mvpdemo.mvp.base.BaseFragment
  * Author : cc_013
  * Date : 2018/2/9
  */
-class HomeFragment : BaseFragment() {
+class MainFragment : BaseFragment() {
     override fun initData() {
     }
 
