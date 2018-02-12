@@ -92,7 +92,7 @@ class CustomTitleBar : LinearLayoutCompat {
             barBackground = getResourceId(R.styleable.CustomTitleBar_barBackground, -1)
         }.recycle()
 
-//        View.inflate(context)
+        val barLayoutView = View.inflate(context, R.layout.view_customtitlebar, null)
     }
 
 }
