@@ -14,13 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/NoTitleAppTheme">
         <activity android:name=".mvp.ui.activity.MainActivity">
+
+        </activity>
+        <activity android:name=".mvp2.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.ui.activity.textActivity" />
     </application>
 
 </manifest>
