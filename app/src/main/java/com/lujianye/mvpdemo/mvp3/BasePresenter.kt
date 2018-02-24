@@ -1,7 +1,5 @@
 package com.lujianye.mvpdemo.mvp3
 
-import com.lujianye.mvpdemo.mvp2.LoginView
-
 
 /**
  * Description : TODO
