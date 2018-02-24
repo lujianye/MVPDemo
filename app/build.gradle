@@ -40,7 +40,8 @@ dependencies {
     implementation 'com.android.support:design:27.0.2'
     //
     compile 'me.yokeyword:fragmentation:1.2.5'
-
     // Android KTX for framework API
     implementation 'androidx.core:core-ktx:0.1'
+    //超级文本框
+    implementation 'com.github.lygttpod:SuperTextView:2.1.6'
 }

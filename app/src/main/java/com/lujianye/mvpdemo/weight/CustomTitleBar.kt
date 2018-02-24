@@ -1,13 +1,15 @@
 package com.lujianye.mvpdemo.weight
 
 import android.content.Context
-import android.graphics.Color
 import android.support.v7.widget.LinearLayoutCompat
 import android.util.AttributeSet
-import android.view.Gravity
 import android.view.View
+import android.widget.Button
 import com.lujianye.mvpdemo.R
-import org.jetbrains.anko.*
+import kotlinx.android.synthetic.main.view_customtitlebar.view.*
+import android.widget.RelativeLayout
+import android.widget.TextView
+
 
 /**
  * Description : TODO
@@ -93,6 +95,35 @@ class CustomTitleBar : LinearLayoutCompat {
         }.recycle()
 
         val barLayoutView = View.inflate(context, R.layout.view_customtitlebar, null)
-    }
+        val leftBtn = barLayoutView.findViewById(R.id.toolbar_left_btn) as Button
+        val leftTv = barLayoutView.findViewById(R.id.toolbar_left_tv) as TextView
+        val titleTv = barLayoutView.findViewById(R.id.toolbar_title_tv) as TextView
+        val rightBtn = barLayoutView.findViewById(R.id.toolbar_right_btn) as Button
+        val rightTv = barLayoutView.findViewById(R.id.toolbar_right_tv) as TextView
+        val barRlyt = barLayoutView.findViewById(R.id.toolbar_content_rlyt) as RelativeLayout
+        leftBtn.visibility = isLeftBtnVisible
+        leftTv.visibility = isLeftTvVisible
+        rightBtn.visibility = isRightBtnVisible
+        rightTv.visibility = isRightTvVisible
+        titleTv.visibility = isTitleVisible
+        if (titleLayout != -1) {
+            val titleLayout = View.inflate(context, titleLayout, null)
+        }
 
+        leftBtn.text = leftTvText
+        titleTv.text = titleText
+        rightTv.text = rightTvText
+
+        if (leftResId != -1) {
+            leftBtn.setBackgroundResource(leftResId)
+        }
+        if (rightResId != -1) {
+            rightBtn.setBackgroundResource(rightResId)
+        }
+        if (barBackground != -1) {
+            barRlyt.setBackgroundColor(resources.getColor(R.color.bg_toolbar))
+        }
+        //将设置完成之后的View添加到此LinearLayout中
+        addView(barLayoutView, 0)
+    }
 }
