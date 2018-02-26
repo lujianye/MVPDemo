@@ -1,10 +1,10 @@
-package com.lujianye.mvpdemo.mvp3
+package com.lujianye.mvpdemo.mvp1
 
 /**
  * Description : 交互接口
  * Author : lujianye
  * Date : 2018/2/24
  */
-interface LoginView_2 : MvpView {
+interface LoginView {
     fun onLoginResult(result: String)
 }

@@ -1,4 +1,4 @@
-package com.lujianye.mvpdemo.mvp3
+package com.lujianye.mvpdemo.mvp2
 
 import android.app.Activity
 import android.os.Bundle

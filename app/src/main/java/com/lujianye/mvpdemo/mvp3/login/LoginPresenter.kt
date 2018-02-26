@@ -1,7 +1,7 @@
-package com.lujianye.mvpdemo.mvp3
+package com.lujianye.mvpdemo.mvp3.login
 
-import com.lujianye.mvpdemo.mvp2.LoginModel
-import com.lujianye.mvpdemo.mvp2.LoginView
+import com.lujianye.mvpdemo.mvp1.LoginModel
+import com.lujianye.mvpdemo.mvp3.MvpPresenter
 import com.lujianye.mvpdemo.utils.HttpUtils
 
 /**
@@ -13,7 +13,7 @@ import com.lujianye.mvpdemo.utils.HttpUtils
 //两个特点：
 //特点一：持有V层的引用
 //特点二：持有M层的引用
-class LoginPresenter_2 : BasePresenter<LoginView_2>() {
+class LoginPresenter : MvpPresenter<LoginView>() {
 
     //特点二：持有M层的引用
     private var loginModel: LoginModel = LoginModel()

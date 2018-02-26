@@ -1,10 +1,13 @@
-package com.lujianye.mvpdemo.mvp2
+package com.lujianye.mvpdemo.mvp1
 
 import android.os.Bundle
 import com.lujianye.mvpdemo.R
-import com.lujianye.mvpdemo.mvp3.BaseActivity
-import com.lujianye.mvpdemo.mvp3.LoginPresenter_2
-import com.lujianye.mvpdemo.mvp3.LoginView_2
+import com.lujianye.mvpdemo.mvp2.BaseActivity
+import com.lujianye.mvpdemo.mvp2.LoginPresenter_2
+import com.lujianye.mvpdemo.mvp2.LoginView_2
+import com.lujianye.mvpdemo.mvp3.MvpActivity
+import com.lujianye.mvpdemo.mvp3.login.LoginPresenter
+import com.lujianye.mvpdemo.mvp3.login.LoginView
 import kotlinx.android.synthetic.main.activity_main2.*
 import org.jetbrains.anko.toast
 
@@ -18,7 +21,8 @@ import org.jetbrains.anko.toast
 //特点一：持有P层引用
 //特点二：实现交互接口
 //class MainActivity : AppCompatActivity(), LoginView {
-class MainActivity : BaseActivity<LoginView_2, LoginPresenter_2>(), LoginView_2 {
+//class MainActivity : BaseActivity<LoginView_2, LoginPresenter_2>(), LoginView_2 {
+class MainActivity : MvpActivity<LoginView, LoginPresenter>(), LoginView {
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
@@ -108,7 +112,7 @@ class MainActivity : BaseActivity<LoginView_2, LoginPresenter_2>(), LoginView_2 
         }
     }
 
-    override fun createPresenter(): LoginPresenter_2 = LoginPresenter_2()
+    override fun createPresenter(): LoginPresenter = LoginPresenter()
 
     override fun onLoginResult(result: String) {
         toast(result)

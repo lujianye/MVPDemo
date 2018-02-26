@@ -1,5 +1,6 @@
 package com.lujianye.mvpdemo.mvp2
 
+import com.lujianye.mvpdemo.mvp1.LoginModel
 import com.lujianye.mvpdemo.utils.HttpUtils
 
 /**
@@ -11,29 +12,16 @@ import com.lujianye.mvpdemo.utils.HttpUtils
 //两个特点：
 //特点一：持有V层的引用
 //特点二：持有M层的引用
-class LoginPresenter {
-    //特点一：持有V层的引用
-    private var loginView: LoginView? = null
+class LoginPresenter_2 : BasePresenter<LoginView_2>() {
 
     //特点二：持有M层的引用
     private var loginModel: LoginModel = LoginModel()
 
-    //绑定方法
-    //方案一：通过构造方法绑定
-    //方案二：通过对象方法绑定
-    fun attachView(loginView: LoginView) {
-        this.loginView = loginView
-    }
-
-    fun detachView() {
-        this.loginView = null
-    }
-
     //提供一个业务方法
     fun login() {
         this.loginModel.login(HttpUtils.OnHttpResultListener {
-            if (loginView != null) {
-                loginView?.onLoginResult(it)
+            if (getView() != null) {
+                getView()?.onLoginResult(it)
             }
         })
     }

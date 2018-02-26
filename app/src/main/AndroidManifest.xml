@@ -16,7 +16,7 @@
         <activity android:name=".mvp.ui.activity.MainActivity">
 
         </activity>
-        <activity android:name=".mvp2.MainActivity">
+        <activity android:name=".mvp1.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

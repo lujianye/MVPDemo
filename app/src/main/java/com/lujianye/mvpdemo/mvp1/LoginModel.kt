@@ -1,4 +1,4 @@
-package com.lujianye.mvpdemo.mvp2
+package com.lujianye.mvpdemo.mvp1
 
 import com.lujianye.mvpdemo.utils.HttpTask
 import com.lujianye.mvpdemo.utils.HttpUtils
