@@ -17,6 +17,9 @@
 
         </activity>
         <activity android:name=".mvp1.MainActivity">
+
+        </activity>
+        <activity android:name=".mvp3.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

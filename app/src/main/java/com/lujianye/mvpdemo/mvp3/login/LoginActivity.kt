@@ -1,4 +1,4 @@
-package com.lujianye.mvpdemo.mvp1
+package com.lujianye.mvpdemo.mvp3.login
 
 import android.os.Bundle
 import com.lujianye.mvpdemo.R
@@ -23,7 +23,7 @@ import org.jetbrains.anko.toast
 //特点二：实现交互接口
 //class MainActivity : AppCompatActivity(), LoginView {
 //class MainActivity : BaseActivity<LoginView_2, LoginPresenter_2>(), LoginView_2 {
-class MainActivity : MvpActivity<LoginContract.LoginView, LoginContract.LoginPresenter>(), LoginContract.LoginView {
+class LoginActivity : MvpActivity<LoginContract.LoginView, LoginContract.LoginPresenter>(), LoginContract.LoginView {
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
