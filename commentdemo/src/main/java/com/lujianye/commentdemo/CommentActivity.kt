@@ -85,12 +85,13 @@ class CommentActivity : AppCompatActivity() {
 //                , KPSwitchConflictUtil.SubPanelAndTrigger(sub_panel_2, voice_text_switch_iv))
 
         KPSwitchConflictUtil.attach(panel_root, plus_iv, send_edt) {
-            if (it) {
-                send_edt.clearFocus()
-            } else {
-                send_edt.requestFocus()
-            }
+//            if (it) {
+//                send_edt.clearFocus()
+//            } else {
+//                send_edt.requestFocus()
+//            }
         }
+
     }
 
     /**
