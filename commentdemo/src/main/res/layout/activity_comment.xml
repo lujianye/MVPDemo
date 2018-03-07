@@ -1,36 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lujianye.commentdemo.CommentActivity">
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etInput"
-        android:layout_width="0dp"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/content_ryv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/chatting_list_bg" />
+
+    <include layout="@layout/layout_send_message_bar" />
+
+
+    <cn.dreamtobe.kpswitch.widget.KPSwitchPanelLinearLayout
+        android:id="@+id/panel_root"
+        style="@style/Panel"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/ivEmotion"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:visibility="gone">
 
-    <ImageView
-        android:id="@+id/ivEmotion"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:clickable="true"
-        android:src="@mipmap/ic_emotion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnComment"
-        app:layout_constraintStart_toEndOf="@id/etInput"/>
+        <!--<include layout="@layout/merge_panel_content" />-->
 
-    <Button
-        android:id="@+id/btnComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="评论"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
 
-</android.support.constraint.ConstraintLayout>
+            android:gravity="center">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_complate_emotion_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+        </LinearLayout>
+
+        <com.lujianye.commentdemo.EmojiIndicatorView
+            android:id="@+id/ll_point_group"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:orientation="horizontal" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <!--<com.zejian.emotionkeyboard.emotionkeyboardview.NoHorizontalScrollerViewPager-->
+            <!--android:id="@+id/vp_emotionview_layout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0.5dp"-->
+            <!--android:background="@color/bg_horizontal_line_color" />-->
+
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/recyclerview_horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="40dp" />-->
+        <!--<include-->
+        <!--android:id="@+id/sub_panel_1"-->
+        <!--layout="@layout/sub_panel_content"/>-->
+
+        <!--<include-->
+        <!--android:id="@+id/sub_panel_2"-->
+        <!--layout="@layout/sub_panel_content2"/>-->
+    </cn.dreamtobe.kpswitch.widget.KPSwitchPanelLinearLayout>
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/ll_emotion_layout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:orientation="vertical"-->
+    <!--android:visibility="gone">-->
+
+    <!---->
+
+    <!--</LinearLayout>-->
+
+</cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout>

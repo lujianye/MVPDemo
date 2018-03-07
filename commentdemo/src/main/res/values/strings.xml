@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CommentDemo</string>
+
+    <string name="site">位置</string>
+    <string name="site2">位置2</string>
+    <string name="picture">照片</string>
+    <string name="picture2">照片2</string>
+    <string name="press_say">按住说话</string>
 </resources>

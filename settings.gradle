@@ -1,1 +1,1 @@
-include ':app', ':comment', ':commentdemo', ':emotionkeyboard', ':sharedemo'
+include ':app', ':comment', ':commentdemo', ':emotionkeyboard', ':sharedemo', ':library'
