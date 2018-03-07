@@ -1,9 +1,12 @@
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.weight;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.lujianye.commentdemo.R;
+import com.lujianye.commentdemo.utils.DisplayUtils;
 
 import java.util.ArrayList;
 

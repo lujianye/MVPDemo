@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.utils;
 
 import android.content.Context;
 import android.content.res.Resources;

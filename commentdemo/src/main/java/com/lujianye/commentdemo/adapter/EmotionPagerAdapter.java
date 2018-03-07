@@ -1,4 +1,4 @@
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.adapter;
 
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;

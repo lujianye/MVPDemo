@@ -1,4 +1,4 @@
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.utils;
 
 import android.text.TextUtils;
 import android.util.Log;

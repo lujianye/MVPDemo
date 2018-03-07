@@ -1,10 +1,12 @@
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.utils;
 
 import android.content.Context;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+
+import com.lujianye.commentdemo.adapter.EmotionGridViewAdapter;
 
 /**
  * Created by zejian

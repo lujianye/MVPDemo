@@ -1,4 +1,4 @@
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.utils;
 
 import android.app.Activity;
 import android.content.Context;

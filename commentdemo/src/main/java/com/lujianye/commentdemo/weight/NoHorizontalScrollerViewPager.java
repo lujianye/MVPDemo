@@ -1,4 +1,4 @@
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.weight;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

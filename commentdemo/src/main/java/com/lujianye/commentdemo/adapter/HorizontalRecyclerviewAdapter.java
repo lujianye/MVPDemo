@@ -1,4 +1,4 @@
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.lujianye.commentdemo.R;
 import com.lujianye.commentdemo.model.ImageModel;
+import com.lujianye.commentdemo.utils.ScreenUtils;
 
 import java.util.List;
 
@@ -70,7 +72,7 @@ public class HorizontalRecyclerviewAdapter extends RecyclerView.Adapter<Horizont
         /**
          * 动态计算底部tab的宽度。
          */
-        int width=ScreenUtils.getScreenWidth(context);
+        int width= ScreenUtils.getScreenWidth(context);
         float itemW=width/6;
         ViewGroup.LayoutParams lp=  holder.imageBtn.getLayoutParams();
         lp.width= (int) itemW;

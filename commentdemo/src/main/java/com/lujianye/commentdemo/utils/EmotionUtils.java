@@ -1,7 +1,9 @@
 
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.utils;
 
 import android.support.v4.util.ArrayMap;
+
+import com.lujianye.commentdemo.R;
 
 
 /**

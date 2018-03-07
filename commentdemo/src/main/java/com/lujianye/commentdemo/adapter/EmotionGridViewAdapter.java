@@ -1,4 +1,4 @@
-package com.lujianye.commentdemo;
+package com.lujianye.commentdemo.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+
+import com.lujianye.commentdemo.R;
+import com.lujianye.commentdemo.utils.EmotionUtils;
 
 import java.util.List;
 
