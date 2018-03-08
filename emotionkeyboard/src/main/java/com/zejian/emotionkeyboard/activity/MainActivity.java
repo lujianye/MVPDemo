@@ -6,9 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.zejian.emotionkeyboard.BaseActivity;
 import com.zejian.emotionkeyboard.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 //    //编辑器
 //    private EditText et_emotion;

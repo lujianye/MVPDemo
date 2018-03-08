@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
+import com.zejian.emotionkeyboard.BaseActivity;
 import com.zejian.emotionkeyboard.R;
 import com.zejian.emotionkeyboard.fragment.EmotionMainFragment;
 
@@ -15,7 +16,7 @@ import com.zejian.emotionkeyboard.fragment.EmotionMainFragment;
  * Email shinezejian@163.com
  * Description:主体内容为ListView
  */
-public class ListViewBarEditActivity extends AppCompatActivity{
+public class ListViewBarEditActivity extends BaseActivity{
 
     private ListView listView;
     private EmotionMainFragment emotionMainFragment;

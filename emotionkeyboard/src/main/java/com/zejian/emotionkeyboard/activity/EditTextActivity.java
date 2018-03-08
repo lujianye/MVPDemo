@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.zejian.emotionkeyboard.BaseActivity;
 import com.zejian.emotionkeyboard.R;
 import com.zejian.emotionkeyboard.fragment.EmotionMainFragment;
 
@@ -16,7 +17,7 @@ import com.zejian.emotionkeyboard.fragment.EmotionMainFragment;
  * Email shinezejian@163.com
  * Description:主体内容为EditText
  */
-public class EditTextActivity extends AppCompatActivity {
+public class EditTextActivity extends BaseActivity {
 
     private EditText et_emotion; //编辑器
     private EmotionMainFragment emotionMainFragment;

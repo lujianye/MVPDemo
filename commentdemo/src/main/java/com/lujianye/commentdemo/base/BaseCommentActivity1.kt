@@ -1,15 +1,16 @@
-package com.lujianye.commentdemo
+package com.lujianye.commentdemo.base
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.GridLayoutManager
+import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.GridView
 import android.widget.LinearLayout
 import cn.dreamtobe.kpswitch.util.KPSwitchConflictUtil
 import cn.dreamtobe.kpswitch.util.KeyboardUtil
+import com.lujianye.commentdemo.R
 import com.lujianye.commentdemo.adapter.EmotionGridViewAdapter
 import com.lujianye.commentdemo.adapter.EmotionPagerAdapter
 import com.lujianye.commentdemo.adapter.HorizontalRecyclerviewAdapter
@@ -17,23 +18,69 @@ import com.lujianye.commentdemo.bean.ImageBean
 import com.lujianye.commentdemo.utils.DisplayUtils
 import com.lujianye.commentdemo.utils.EmotionUtils
 import com.lujianye.commentdemo.utils.GlobalOnItemClickManagerUtils
-import kotlinx.android.synthetic.main.activity_comment.*
 import kotlinx.android.synthetic.main.layout_send_message_bar.*
+import kotlinx.android.synthetic.main.model_activity_comment_base1.*
 import org.jetbrains.anko.toast
 import java.util.ArrayList
 
-class CommentActivity : AppCompatActivity() {
-
+/**
+ * Description : 底部导航父类
+ * Author : lujianye
+ * Date : 2018/3/8
+ */
+open class BaseCommentActivity1 : BaseActivity() {
+    /**-------------评论START------------*/
     var emotionPagerGvAdapter: EmotionPagerAdapter? = null
 
+    /**-------------评论END------------*/
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_comment)
+
+    override fun getLayoutResID(): Int = R.layout.model_activity_comment_base1
+
+    override fun init() {
 
         //监听软键盘的开启与关闭
-        KeyboardUtil.attach(this@CommentActivity, panel_root) { isShowing -> toast("Keyboard is $isShowing") }
+//        KeyboardUtil.attach(this@BaseCommentActivity, panel_root) { isShowing -> toast("Keyboard is $isShowing") }
 
+        //初始化上部区域
+        initUp(fl_content_up)
+
+        //初始化底部导航
+        initBottomNavigation()
+
+    }
+
+    open fun initUp(fl_content_up: FrameLayout){}
+
+    private fun initBottomNavigation() {
+        //返回
+        iv_bottom_navigation_back.setOnClickListener {
+            toast("返回按钮被点击了！！！")
+        }
+        //分享
+        iv_bottom_navigation_share.setOnClickListener {
+            toast("分享按钮被点击了！！！")
+        }
+        //收藏
+        iv_bottom_navigation_collection.setOnClickListener {
+            toast("收藏按钮被点击了！！！")
+        }
+        //点赞
+        iv_bottom_navigation_praise.setOnClickListener {
+            toast("点赞按钮被点击了！！！")
+        }
+        //评论列表
+        iv_bottom_navigation_comment_list.setOnClickListener {
+            toast("评论列表按钮被点击了！！！")
+        }
+        //评论
+        tv_bottom_navigation_comment.setOnClickListener {
+            toast("评论按钮被点击了！！！")
+//            ll_bottom_navigation.visibility = View.GONE
+//            sendMsgLayout.visibility = View.VISIBLE
+        }
+
+        //
         //初始化表情
         initEmotion()
 
@@ -59,13 +106,13 @@ class CommentActivity : AppCompatActivity() {
         model1.isSelected = true
         list.add(model1)
         //底部tab
-        val horizontalRecyclerviewAdapter = HorizontalRecyclerviewAdapter(this@CommentActivity, list)
+        val horizontalRecyclerviewAdapter = HorizontalRecyclerviewAdapter(this@BaseCommentActivity1, list)
         recyclerview_horizontal.setHasFixedSize(true)//使RecyclerView保持固定的大小,这样会提高RecyclerView的性能
         recyclerview_horizontal.adapter = horizontalRecyclerviewAdapter
-        recyclerview_horizontal.layoutManager = GridLayoutManager(this@CommentActivity, 1, GridLayoutManager.HORIZONTAL, false)
+        recyclerview_horizontal.layoutManager = GridLayoutManager(this@BaseCommentActivity1, 1, GridLayoutManager.HORIZONTAL, false)
 
         //创建全局监听
-        val globalOnItemClickManager = GlobalOnItemClickManagerUtils.getInstance(this@CommentActivity)
+        val globalOnItemClickManager = GlobalOnItemClickManagerUtils.getInstance(this@BaseCommentActivity1)
 
 //        if (isBindToBarEditText) {
         //绑定当前Bar的编辑框
@@ -93,7 +140,6 @@ class CommentActivity : AppCompatActivity() {
 //                send_edt.requestFocus()
 //            }
         }
-
     }
 
     /**
@@ -106,9 +152,9 @@ class CommentActivity : AppCompatActivity() {
      */
     private fun initEmotion() {
         //获取屏幕高度
-        val screenWidth = DisplayUtils.getScreenWidthPixels(this@CommentActivity)
+        val screenWidth = DisplayUtils.getScreenWidthPixels(this@BaseCommentActivity1)
         // item的间距
-        val spacing = DisplayUtils.dp2px(this@CommentActivity, 12f)
+        val spacing = DisplayUtils.dp2px(this@BaseCommentActivity1, 12f)
         // 动态计算item的宽度和高度
         val itemWidth = (screenWidth - spacing * 8) / 7
         //动态计算gridview的总高度
@@ -149,7 +195,7 @@ class CommentActivity : AppCompatActivity() {
      */
     fun createEmotionGridView(emotionNames: List<String>, gvWidth: Int, padding: Int, itemWidth: Int, gvHeight: Int): GridView {
         // 创建GridView
-        val gv = GridView(this@CommentActivity)
+        val gv = GridView(this@BaseCommentActivity1)
         //设置点击背景透明
         gv.setSelector(android.R.color.transparent)
         //设置7列
@@ -161,10 +207,10 @@ class CommentActivity : AppCompatActivity() {
         val params = ViewGroup.LayoutParams(gvWidth, gvHeight)
         gv.layoutParams = params
         // 给GridView设置表情图片
-        val adapter = EmotionGridViewAdapter(this@CommentActivity, emotionNames, itemWidth, EmotionUtils.EMOTION_CLASSIC_TYPE)
+        val adapter = EmotionGridViewAdapter(this@BaseCommentActivity1, emotionNames, itemWidth, EmotionUtils.EMOTION_CLASSIC_TYPE)
         gv.adapter = adapter
         //设置全局点击事件
-        gv.onItemClickListener = GlobalOnItemClickManagerUtils.getInstance(this@CommentActivity).getOnItemClickListener(EmotionUtils.EMOTION_CLASSIC_TYPE)
+        gv.onItemClickListener = GlobalOnItemClickManagerUtils.getInstance(this@BaseCommentActivity1).getOnItemClickListener(EmotionUtils.EMOTION_CLASSIC_TYPE)
         return gv
     }
 }

@@ -1,15 +1,20 @@
-package com.lujianye.commentdemo
+package com.lujianye.commentdemo.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
+import android.widget.EditText
 import android.widget.GridView
+import android.widget.ImageView
 import android.widget.LinearLayout
 import cn.dreamtobe.kpswitch.util.KPSwitchConflictUtil
-import cn.dreamtobe.kpswitch.util.KeyboardUtil
+import cn.dreamtobe.kpswitch.widget.KPSwitchPanelLinearLayout
+import com.lujianye.commentdemo.R
 import com.lujianye.commentdemo.adapter.EmotionGridViewAdapter
 import com.lujianye.commentdemo.adapter.EmotionPagerAdapter
 import com.lujianye.commentdemo.adapter.HorizontalRecyclerviewAdapter
@@ -17,34 +22,50 @@ import com.lujianye.commentdemo.bean.ImageBean
 import com.lujianye.commentdemo.utils.DisplayUtils
 import com.lujianye.commentdemo.utils.EmotionUtils
 import com.lujianye.commentdemo.utils.GlobalOnItemClickManagerUtils
-import kotlinx.android.synthetic.main.activity_comment.*
-import kotlinx.android.synthetic.main.layout_send_message_bar.*
-import org.jetbrains.anko.toast
-import java.util.ArrayList
+import com.lujianye.commentdemo.weight.EmojiIndicatorView
+import java.util.*
 
-class CommentActivity : AppCompatActivity() {
-
+/**
+ * Description : TODO
+ * Author : lujianye
+ * Date : 2018/3/8
+ */
+class CommentFragment : Fragment() {
+    /**-------------评论START------------*/
     var emotionPagerGvAdapter: EmotionPagerAdapter? = null
 
+    /**-------------评论END------------*/
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_comment)
+    var ll_bottom_navigation: LinearLayout? = null
+    var sendMsgLayout: LinearLayout? = null
+    var send_edt: EditText? = null
+    var plus_iv: ImageView? = null
+    var panel_root: KPSwitchPanelLinearLayout? = null
+    var vp_complate_emotion_layout: ViewPager? = null
+    var ll_point_group: EmojiIndicatorView? = null
+    var recyclerview_horizontal: RecyclerView? = null
 
-        //监听软键盘的开启与关闭
-        KeyboardUtil.attach(this@CommentActivity, panel_root) { isShowing -> toast("Keyboard is $isShowing") }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val rootView = inflater.inflate(R.layout.fragment_comment, container, false)
 
-        //初始化表情
+        ll_bottom_navigation = rootView.findViewById(R.id.ll_bottom_navigation)
+        sendMsgLayout = rootView.findViewById(R.id.sendMsgLayout)
+        send_edt = rootView.findViewById(R.id.send_edt)
+        plus_iv = rootView.findViewById(R.id.plus_iv)
+        panel_root = rootView.findViewById(R.id.panel_root)
+        vp_complate_emotion_layout = rootView.findViewById(R.id.vp_complate_emotion_layout)
+        ll_point_group = rootView.findViewById(R.id.ll_point_group)
+        recyclerview_horizontal = rootView.findViewById(R.id.recyclerview_horizontal)
         initEmotion()
 
-        vp_complate_emotion_layout.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        vp_complate_emotion_layout?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             internal var oldPagerPos = 0
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
 
             }
 
             override fun onPageSelected(position: Int) {
-                ll_point_group.playByStartPointToNext(oldPagerPos, position)
+                ll_point_group?.playByStartPointToNext(oldPagerPos, position)
                 oldPagerPos = position
             }
 
@@ -59,13 +80,13 @@ class CommentActivity : AppCompatActivity() {
         model1.isSelected = true
         list.add(model1)
         //底部tab
-        val horizontalRecyclerviewAdapter = HorizontalRecyclerviewAdapter(this@CommentActivity, list)
-        recyclerview_horizontal.setHasFixedSize(true)//使RecyclerView保持固定的大小,这样会提高RecyclerView的性能
-        recyclerview_horizontal.adapter = horizontalRecyclerviewAdapter
-        recyclerview_horizontal.layoutManager = GridLayoutManager(this@CommentActivity, 1, GridLayoutManager.HORIZONTAL, false)
+        val horizontalRecyclerviewAdapter = HorizontalRecyclerviewAdapter(activity, list)
+        recyclerview_horizontal?.setHasFixedSize(true)//使RecyclerView保持固定的大小,这样会提高RecyclerView的性能
+        recyclerview_horizontal?.adapter = horizontalRecyclerviewAdapter
+        recyclerview_horizontal?.layoutManager = GridLayoutManager(activity, 1, GridLayoutManager.HORIZONTAL, false)
 
         //创建全局监听
-        val globalOnItemClickManager = GlobalOnItemClickManagerUtils.getInstance(this@CommentActivity)
+        val globalOnItemClickManager = GlobalOnItemClickManagerUtils.getInstance(activity)
 
 //        if (isBindToBarEditText) {
         //绑定当前Bar的编辑框
@@ -93,7 +114,7 @@ class CommentActivity : AppCompatActivity() {
 //                send_edt.requestFocus()
 //            }
         }
-
+        return rootView
     }
 
     /**
@@ -106,9 +127,9 @@ class CommentActivity : AppCompatActivity() {
      */
     private fun initEmotion() {
         //获取屏幕高度
-        val screenWidth = DisplayUtils.getScreenWidthPixels(this@CommentActivity)
+        val screenWidth = DisplayUtils.getScreenWidthPixels(activity)
         // item的间距
-        val spacing = DisplayUtils.dp2px(this@CommentActivity, 12f)
+        val spacing = DisplayUtils.dp2px(activity, 12f)
         // 动态计算item的宽度和高度
         val itemWidth = (screenWidth - spacing * 8) / 7
         //动态计算gridview的总高度
@@ -136,12 +157,12 @@ class CommentActivity : AppCompatActivity() {
         }
 
         //初始化指示器
-        ll_point_group.initIndicator(emotionViews.size)
+        ll_point_group?.initIndicator(emotionViews.size)
         // 将多个GridView添加显示到ViewPager中
         emotionPagerGvAdapter = EmotionPagerAdapter(emotionViews)
-        vp_complate_emotion_layout.adapter = emotionPagerGvAdapter
+        vp_complate_emotion_layout?.adapter = emotionPagerGvAdapter
         val params = LinearLayout.LayoutParams(screenWidth, gvHeight)
-        vp_complate_emotion_layout.layoutParams = params
+        vp_complate_emotion_layout?.layoutParams = params
     }
 
     /**
@@ -149,7 +170,7 @@ class CommentActivity : AppCompatActivity() {
      */
     fun createEmotionGridView(emotionNames: List<String>, gvWidth: Int, padding: Int, itemWidth: Int, gvHeight: Int): GridView {
         // 创建GridView
-        val gv = GridView(this@CommentActivity)
+        val gv = GridView(activity)
         //设置点击背景透明
         gv.setSelector(android.R.color.transparent)
         //设置7列
@@ -161,10 +182,10 @@ class CommentActivity : AppCompatActivity() {
         val params = ViewGroup.LayoutParams(gvWidth, gvHeight)
         gv.layoutParams = params
         // 给GridView设置表情图片
-        val adapter = EmotionGridViewAdapter(this@CommentActivity, emotionNames, itemWidth, EmotionUtils.EMOTION_CLASSIC_TYPE)
+        val adapter = EmotionGridViewAdapter(activity, emotionNames, itemWidth, EmotionUtils.EMOTION_CLASSIC_TYPE)
         gv.adapter = adapter
         //设置全局点击事件
-        gv.onItemClickListener = GlobalOnItemClickManagerUtils.getInstance(this@CommentActivity).getOnItemClickListener(EmotionUtils.EMOTION_CLASSIC_TYPE)
+        gv.onItemClickListener = GlobalOnItemClickManagerUtils.getInstance(activity).getOnItemClickListener(EmotionUtils.EMOTION_CLASSIC_TYPE)
         return gv
     }
 }
