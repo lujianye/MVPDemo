@@ -1,4 +1,4 @@
-package com.lujianye.commentdemo
+package com.lujianye.commentdemo.model
 
 /**
  * Description : 评论M层

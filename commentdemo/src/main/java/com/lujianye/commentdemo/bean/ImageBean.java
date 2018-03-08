@@ -1,4 +1,4 @@
-package com.lujianye.commentdemo.model;
+package com.lujianye.commentdemo.bean;
 
 import android.graphics.drawable.Drawable;
 
@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
  * Email shinezejian@163.com
  * Description:底部tab图片对象
  */
-public class ImageModel {
+public class ImageBean {
 
     public String flag=null;//说明文本
     public Drawable icon=null;//图标

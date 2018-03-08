@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.lujianye.commentdemo.R;
-import com.lujianye.commentdemo.model.ImageModel;
+import com.lujianye.commentdemo.bean.ImageBean;
 import com.lujianye.commentdemo.utils.ScreenUtils;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class HorizontalRecyclerviewAdapter extends RecyclerView.Adapter<HorizontalRecyclerviewAdapter.ViewHolder> {
 
-    private List<ImageModel> datas;
+    private List<ImageBean> datas;
 
     private LayoutInflater mInflater;
 
@@ -29,7 +29,7 @@ public class HorizontalRecyclerviewAdapter extends RecyclerView.Adapter<Horizont
 
     private OnClickItemListener onClickItemListener;
 
-    public HorizontalRecyclerviewAdapter(Context context, List<ImageModel> datas){
+    public HorizontalRecyclerviewAdapter(Context context, List<ImageBean> datas){
         this.datas=datas;
         this.context=context;
         mInflater=LayoutInflater.from(context);
@@ -44,7 +44,7 @@ public class HorizontalRecyclerviewAdapter extends RecyclerView.Adapter<Horizont
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        ImageModel model=datas.get(position);
+        ImageBean model=datas.get(position);
         /**
          * 点击事件和长按事件
          */
@@ -122,9 +122,9 @@ public class HorizontalRecyclerviewAdapter extends RecyclerView.Adapter<Horizont
      */
     public interface OnClickItemListener {
 
-        void onItemClick(View view, int position, List<ImageModel> datas);
+        void onItemClick(View view, int position, List<ImageBean> datas);
 
-        void onItemLongClick(View view, int position, List<ImageModel> datas);
+        void onItemLongClick(View view, int position, List<ImageBean> datas);
 
     }
 

@@ -1,4 +1,7 @@
-package com.lujianye.commentdemo
+package com.lujianye.commentdemo.contract
+
+import com.lujianye.commentdemo.base.BasePresenter
+import com.lujianye.commentdemo.base.BaseView
 
 /**
  * Description : 评论协议类

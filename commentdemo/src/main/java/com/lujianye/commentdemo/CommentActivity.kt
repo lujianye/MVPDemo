@@ -12,7 +12,7 @@ import cn.dreamtobe.kpswitch.util.KeyboardUtil
 import com.lujianye.commentdemo.adapter.EmotionGridViewAdapter
 import com.lujianye.commentdemo.adapter.EmotionPagerAdapter
 import com.lujianye.commentdemo.adapter.HorizontalRecyclerviewAdapter
-import com.lujianye.commentdemo.model.ImageModel
+import com.lujianye.commentdemo.bean.ImageBean
 import com.lujianye.commentdemo.utils.DisplayUtils
 import com.lujianye.commentdemo.utils.EmotionUtils
 import com.lujianye.commentdemo.utils.GlobalOnItemClickManagerUtils
@@ -50,8 +50,8 @@ class CommentActivity : AppCompatActivity() {
 
             }
         })
-        val list = ArrayList<ImageModel>()
-        val model1 = ImageModel()
+        val list = ArrayList<ImageBean>()
+        val model1 = ImageBean()
         model1.icon = resources.getDrawable(R.drawable.ic_emotion)
         model1.flag = "经典笑脸"
         model1.isSelected = true

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.lujianye.commentdemo
+package com.lujianye.commentdemo.base
 
 //交互接口
 interface BaseView<T> {

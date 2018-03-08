@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lujianye.commentdemo
+package com.lujianye.commentdemo.base
 
 interface BasePresenter {
 
