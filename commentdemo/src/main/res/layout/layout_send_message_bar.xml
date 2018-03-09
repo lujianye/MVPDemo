@@ -8,7 +8,8 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:gravity="center_vertical"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:visibility="gone">
 
     <EditText
         android:id="@+id/send_edt"
@@ -83,7 +84,7 @@
     <!--android:clickable="true"-->
     <!--android:gravity="center"-->
     <!--android:soundEffectsEnabled="true"-->
-    <!--android:text="@string/press_say"-->
+    <!--andrNewsActivitytext="@string/press_say"-->
     <!--android:textColor="#b3b3b3"-->
     <!--android:textSize="16sp"-->
     <!--android:visibility="gone" />-->
@@ -111,7 +112,7 @@
     <!--android:background="@drawable/chatting_send_bg"-->
     <!--android:clickable="true"-->
     <!--android:gravity="center"-->
-    <!--android:text="@string/press_say"-->
+    <!--andrNewsActivitytext="@string/press_say"-->
     <!--android:textColor="@android:color/white"-->
     <!--android:textSize="14sp"-->
     <!--android:visibility="gone" />-->
