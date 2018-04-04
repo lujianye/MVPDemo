@@ -8,12 +8,27 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bnvMenu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        app:elevation="8dp"
+        app:itemIconTint="@color/bg_toolbar"
+        app:itemTextColor="@color/colorAccent"
         app:menu="@menu/bottom_navigation" />
+
+    <!--<android.support.design.widget.BottomNavigationView-->
+        <!--android:id="@+id/bnvMenu"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--android:theme="@style/NoTitleAppTheme"-->
+        <!--app:menu="@menu/bottom_navigation" />-->
 
     <com.lujianye.mvpdemo.weight.NoScrollViewPager
         android:id="@+id/vpContent"

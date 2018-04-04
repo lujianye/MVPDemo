@@ -3,19 +3,19 @@
 
     <item
         android:id="@+id/home"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon8"
         android:title="@string/app_main" />
     <item
         android:id="@+id/mall"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/icon9"
         android:title="@string/app_mall" />
     <item
         android:id="@+id/translation"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon10"
         android:title="@string/app_translate" />
     <item
         android:id="@+id/me"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/icon11"
         android:title="@string/app_me" />
 
 </menu>

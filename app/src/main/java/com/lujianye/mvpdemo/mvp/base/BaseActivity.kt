@@ -9,6 +9,7 @@ import me.yokeyword.fragmentation.SupportActivity
  * Created by cc_013 on 2018/2/8.
  */
 abstract class BaseActivity : SupportActivity() {
+//abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

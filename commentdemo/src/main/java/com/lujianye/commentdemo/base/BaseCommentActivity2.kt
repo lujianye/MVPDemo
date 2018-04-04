@@ -135,6 +135,10 @@ abstract class BaseCommentActivity2 : BaseActivity1() {
                 if (panel_root.visibility == View.VISIBLE && sendMsgLayout.visibility == View.VISIBLE) {
                     ll_bottom_navigation.visibility = View.VISIBLE
                 }
+                //解决软键盘收起的情况下，输入面板显示，表情面板隐藏的情况下，点击上部区域，隐藏评论导航条的bug
+                if (panel_root.visibility == View.GONE && sendMsgLayout.visibility == View.VISIBLE) {
+                    ll_bottom_navigation.visibility = View.VISIBLE
+                }
                 sendMsgLayout.visibility = View.GONE
                 panel_root.visibility = View.GONE
                 send_edt.clearFocus()
