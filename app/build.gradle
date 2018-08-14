@@ -37,12 +37,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     // Retrofit库
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     // Okhttp库
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     //    implementation 'com.android.support:design:27.1.0'
     //
-    compile 'me.yokeyword:fragmentation:1.2.5'
+    implementation 'me.yokeyword:fragmentation:1.2.5'
     // Android KTX for framework API
     implementation 'androidx.core:core-ktx:0.2'
     //超级文本框

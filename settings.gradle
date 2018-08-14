@@ -1,2 +1,2 @@
-include ':app', ':comment', ':commentdemo', ':emotionkeyboard', ':sharedemo', ':library', ':tuya'
+include ':app', ':comment', ':commentdemo', ':emotionkeyboard', ':sharedemo', ':library', ':tuya', ':dragger2demo'
 //include ':app'

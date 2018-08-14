@@ -15,6 +15,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '27.0.3'
 }
 plugins.apply('checkstyle')
 task('checkstyle', type: Checkstyle) {
@@ -42,5 +43,5 @@ if (isForUpload2Maven()) {
 dependencies {
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:support-v4:26.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 }
